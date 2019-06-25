@@ -8,8 +8,10 @@ import reducer from './reducer';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
+// import { setToken } from './token';
 
 const store = createStore(reducer, applyMiddleware(thunk, logger));
+// const store = createStore(reducer, applyMiddleware(setToken, thunk, logger));
 
 ReactDOM.render(
  <Provider store={store}>
