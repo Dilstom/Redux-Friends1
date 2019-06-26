@@ -3,6 +3,8 @@ import './App.css';
 import LoginForm from './components/LoginForm';
 import { connect } from 'react-redux';
 import { getFriends } from './actions';
+import { Route, Link } from 'react-router-dom';
+import FriendsList from './components/FriendsList';
 
 class App extends React.Component {
  constructor() {
@@ -10,34 +12,20 @@ class App extends React.Component {
   this.state = {};
  }
 
- componentDidMount() {
-  this.props.getFriends();
- }
-
  render() {
   return (
    <div className="App">
-    <a
-     className="App-link"
-     href="https://reactjs.org"
-     target="_blank"
-     rel="noopener noreferrer"
-    >
-     Learn React
-    </a>
-    <LoginForm />
+    <ul>
+     <li>
+      <Link to="/login">Login Form</Link>
+     </li>
+     {/* <li><Link to='/api/friends'>FriendsForm</Link></li> */}
+    </ul>
+    <Route path="/login" component={LoginForm} />
+    <Route path="/api/friends" component={FriendsList} />
    </div>
   );
  }
 }
 
-const mapStateToProps = function(state) {
- return {
-  friends: state.friends,
- };
-};
-
-export default connect(
- mapStateToProps,
- { getFriends }
-)(App);
+export default App;
