@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getFriends } from './actions';
 import { Route, Link } from 'react-router-dom';
 import FriendsList from './components/FriendsList';
+import PrivateRoute from './components/PrivateRoute';
 
 class App extends React.Component {
  constructor() {
@@ -22,7 +23,7 @@ class App extends React.Component {
      {/* <li><Link to='/api/friends'>FriendsForm</Link></li> */}
     </ul>
     <Route path="/login" component={LoginForm} />
-    <Route path="/api/friends" component={FriendsList} />
+    <PrivateRoute path="/api/friends" component={FriendsList} />
    </div>
   );
  }
